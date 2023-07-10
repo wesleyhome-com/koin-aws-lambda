@@ -6,10 +6,18 @@
  * Detailed information about configuring a multi-project build in Gradle can be found
  * in the user manual at https://docs.gradle.org/8.1.1/userguide/multi_project_builds.html
  */
+pluginManagement {
+  repositories {
+    mavenLocal()
+    mavenCentral()
+    gradlePluginPortal()
+  }
+}
 
 plugins {
-  kotlin("jvm") version "1.8.22" apply false
+  kotlin("jvm") version "1.8.20" apply false
 }
+
 
 buildscript {
   dependencies {
