@@ -1,0 +1,22 @@
+name: Build Snapshot Gradle project
+
+on:
+  push:
+
+
+jobs:
+  build-snapshot-gradle-project:
+    runs-on: ubuntu-latest
+    env:
+      ORG_GRADLE_PROJECT_sonatypeUsername: ${{ secrets.SONATYPE_USERNAME }}
+      ORG_GRADLE_PROJECT_sonatypePassword: ${{ secrets.SONATYPE_PASSWORD }}
+      ORG_GRADLE_PROJECT_signingKey: $ {{ secrets.GPG_SECRETKEY }}
+    steps:
+      - name: Checkout project sources
+        uses: actions/checkout@v3
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
+        with:
+          gradle-version: 8.2.1
+      - name: Run build with Gradle Wrapper
+        run: ./gradlew build publishToSonatype closeAndReleaseSonatypeStagingRepository
