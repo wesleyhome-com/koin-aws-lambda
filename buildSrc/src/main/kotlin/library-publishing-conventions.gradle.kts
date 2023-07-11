@@ -59,7 +59,6 @@ signing {
     val signingKey: String? by project
     val length = signingKey?.length
     println("SingingKey length = $length")
-    println("SingingKey: $signingKey")
     if((length ?: 0) <= 0){
       throw RuntimeException("No Signing Key")
     }
