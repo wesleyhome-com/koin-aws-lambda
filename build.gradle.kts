@@ -2,7 +2,7 @@ plugins {
   id("io.github.gradle-nexus.publish-plugin") version "1.3.0"
 }
 group =  "com.wesleyhome.aws.koin"
-version = "0.1.0"
+version = "0.2.0-SNAPSHOT"
 //Small hack to override release related properties to prevent accidental production release if called interactively
 //Intended to fail if required (non-optional) values are not provided
 //if (!project.hasProperty("disableE2EOverriding")) {

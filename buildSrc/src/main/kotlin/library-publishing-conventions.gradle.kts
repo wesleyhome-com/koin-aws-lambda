@@ -49,25 +49,16 @@ publishing {
   }
 }
 
-val ciEnv = System.getenv("CI")
-println("CIEnv: $ciEnv")
 signing {
-  val isCI = ciEnv == "true"
-  setRequired { !project.version.toString().endsWith("-SNAPSHOT") && !project.hasProperty("skipSigning") && isCI }
-  if(isCI) {
-    println("In CI - Using Memory PGP Keys")
+  setRequired { !project.version.toString().endsWith("-SNAPSHOT") && !project.hasProperty("skipSigning") }
+  if(isOnCIServer()) {
     val signingKey: String? by project
-    val length = signingKey?.length
-    println("SingingKey length = $length")
-    if((length ?: 0) <= 0){
+    if((signingKey?.length ?: 0) <= 0){
       throw RuntimeException("No Signing Key")
     }
     useInMemoryPgpKeys(signingKey, "")
-    sign(publishing.publications["mavenJava"])
-  } else {
-    sign(publishing.publications["mavenJava"])
-
   }
+  sign(publishing.publications["mavenJava"])
 }
 //
 //release {
@@ -85,4 +76,4 @@ tasks.javadoc {
   }
 }
 
-fun isOnCIServer() = ciEnv == "true"
+fun isOnCIServer() = System.getenv("CI") == "true"
