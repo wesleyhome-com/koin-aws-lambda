@@ -49,9 +49,11 @@ publishing {
   }
 }
 
+val ciEnv = System.getenv("CI")
+println("CIEnv: $ciEnv")
 signing {
-  val isCI = System.getenv("CI") == "true"
-  setRequired { !project.version.toString().endsWith("-SNAPSHOT") && !project.hasProperty("skipSigning") }
+  val isCI = ciEnv == "true"
+  setRequired { !project.version.toString().endsWith("-SNAPSHOT") && !project.hasProperty("skipSigning") && isCI }
   if(isCI) {
     val signingKey: String? by project
     if((signingKey?.length ?: 0) <= 0){
@@ -77,4 +79,4 @@ tasks.javadoc {
   }
 }
 
-fun isOnCIServer() = System.getenv("CI") == "true"
+fun isOnCIServer() = ciEnv == "true"
