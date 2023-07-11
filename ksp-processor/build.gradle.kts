@@ -4,11 +4,11 @@ plugins {
   // Apply the java-library plugin for API and implementation separation.
   `library-publishing-conventions`
 }
-group = "com.wesleyhome.aws.koin"
+group = "com.wesleyhome.koin"
 version = "0.2.0-SNAPSHOT"
 
 dependencies {
-  api(project(":annotations"))
+  api(project(":${rootProject.name}-annotations"))
   implementation("com.google.devtools.ksp:symbol-processing-api:1.8.0-1.0.9")
   implementation("com.squareup:kotlinpoet:1.14.2")
   implementation("com.squareup:kotlinpoet-ksp:1.14.2")

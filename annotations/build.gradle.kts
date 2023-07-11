@@ -5,7 +5,7 @@ plugins {
   // Apply the java-library plugin for API and implementation separation.
   `library-publishing-conventions`
 }
-group = "com.wesleyhome.aws.koin"
+group = "com.wesleyhome.koin"
 version = "0.2.0-SNAPSHOT"
 dependencies {
   api("io.insert-koin:koin-annotations:1.2.2")

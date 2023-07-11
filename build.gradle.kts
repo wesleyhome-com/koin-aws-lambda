@@ -1,7 +1,7 @@
 plugins {
   id("io.github.gradle-nexus.publish-plugin") version "1.3.0"
 }
-group =  "com.wesleyhome.aws.koin"
+group = "com.wesleyhome.koin"
 version = "0.2.0-SNAPSHOT"
 //Small hack to override release related properties to prevent accidental production release if called interactively
 //Intended to fail if required (non-optional) values are not provided
@@ -33,7 +33,7 @@ version = "0.2.0-SNAPSHOT"
 //  }
 //}
 nexusPublishing {
-  repositories {
+  this.repositories {
     sonatype()
   }
 }

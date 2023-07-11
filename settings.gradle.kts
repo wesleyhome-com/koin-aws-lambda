@@ -25,5 +25,10 @@ buildscript {
   }
 }
 
-rootProject.name = "koin-aws-lambda"
-include("annotations", "processor", "processor-test")
+rootProject.name = "aws-lambda"
+val subProjects = listOf("annotations", "ksp-processor", "processor-test")
+include(subProjects)
+project(":annotations")
+subProjects.forEach { subProject ->
+  project(":$subProject").name = rootProject.name + "-$subProject"
+}

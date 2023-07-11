@@ -16,7 +16,7 @@ sourceSets {
 }
 
 dependencies {
-  implementation(project(":annotations"))
+  implementation(project(":${rootProject.name}-annotations"))
   implementation("io.insert-koin:koin-core:3.4.2")
   implementation("com.amazonaws:aws-lambda-java-events:3.11.2")
   implementation("com.amazonaws:aws-lambda-java-core:1.2.2")
@@ -25,7 +25,7 @@ dependencies {
   testImplementation("org.junit.jupiter:junit-jupiter-api:5.9.3")
   testImplementation("io.mockk:mockk:1.13.5")
   testImplementation("org.assertj:assertj-core:3.24.2")
-  ksp(project(":processor"))
+  ksp(project(":${rootProject.name}-ksp-processor"))
   ksp("io.insert-koin:koin-ksp-compiler:1.2.2")
 }
 
