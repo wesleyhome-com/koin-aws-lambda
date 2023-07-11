@@ -1,4 +1,4 @@
-name: Build Snapshot Gradle project
+name: Build Gradle project
 
 on:
   push:
