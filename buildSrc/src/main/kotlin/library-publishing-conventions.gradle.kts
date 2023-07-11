@@ -54,6 +54,9 @@ signing {
   setRequired { !project.version.toString().endsWith("-SNAPSHOT") && !project.hasProperty("skipSigning") }
   if(isCI) {
     val signingKey: String? by project
+    if((signingKey?.length ?: 0) <= 0){
+      throw RuntimeException("No Signing Key")
+    }
     useInMemoryPgpKeys(signingKey, null)
   }
   sign(publishing.publications["mavenJava"])
