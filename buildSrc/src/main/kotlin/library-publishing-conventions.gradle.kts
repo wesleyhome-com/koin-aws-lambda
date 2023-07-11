@@ -55,13 +55,19 @@ signing {
   val isCI = ciEnv == "true"
   setRequired { !project.version.toString().endsWith("-SNAPSHOT") && !project.hasProperty("skipSigning") && isCI }
   if(isCI) {
+    println("In CI - Using Memory PGP Keys")
     val signingKey: String? by project
-    if((signingKey?.length ?: 0) <= 0){
+    val length = signingKey?.length
+    println("SingingKey length = $length")
+    if((length ?: 0) <= 0){
       throw RuntimeException("No Signing Key")
     }
     useInMemoryPgpKeys(signingKey, null)
+    sign(publishing.publications["mavenJava"])
+  } else {
+    sign(publishing.publications["mavenJava"])
+
   }
-  sign(publishing.publications["mavenJava"])
 }
 //
 //release {
