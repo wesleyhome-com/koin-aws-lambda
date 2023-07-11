@@ -6,7 +6,7 @@ plugins {
   `library-publishing-conventions`
 }
 group = "com.wesleyhome.koin"
-version = "0.2.0-SNAPSHOT"
+version = "0.2.0"
 dependencies {
   api("io.insert-koin:koin-annotations:1.2.2")
   testImplementation(kotlin("test"))
