@@ -50,7 +50,12 @@ publishing {
 }
 
 signing {
+  val isCI = System.getenv("CI") == "true"
   setRequired { !project.version.toString().endsWith("-SNAPSHOT") && !project.hasProperty("skipSigning") }
+  if(isCI) {
+    val signingKey: String? by project
+    useInMemoryPgpKeys(signingKey, null)
+  }
   sign(publishing.publications["mavenJava"])
 }
 //
