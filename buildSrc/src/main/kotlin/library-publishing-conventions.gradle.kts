@@ -63,7 +63,7 @@ signing {
     if((length ?: 0) <= 0){
       throw RuntimeException("No Signing Key")
     }
-    useInMemoryPgpKeys(signingKey, null)
+    useInMemoryPgpKeys(signingKey, "")
     sign(publishing.publications["mavenJava"])
   } else {
     sign(publishing.publications["mavenJava"])
