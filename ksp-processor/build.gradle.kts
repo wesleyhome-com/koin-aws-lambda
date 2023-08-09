@@ -6,7 +6,7 @@ plugins {
   `library-publishing-conventions`
 }
 group = "com.wesleyhome.koin"
-version = "0.3.0-SNAPSHOT"
+//version = providers.gradleProperty("version").get()
 
 dependencies {
   api(project(":${rootProject.name}-annotations"))
