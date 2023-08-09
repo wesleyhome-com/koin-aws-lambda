@@ -13,10 +13,10 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 
 @ExtendWith(MockKExtension::class)
-class EnvironmentProviderTest {
+class EnvironmentProviderImplTest {
 
   @InjectMockKs
-  private lateinit var environmentProvider: EnvironmentProvider
+  private lateinit var environmentProvider: EnvironmentProviderImpl
 
   @MockK
   private lateinit var environment: SymbolProcessorEnvironment
