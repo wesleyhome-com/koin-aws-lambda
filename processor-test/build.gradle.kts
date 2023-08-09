@@ -21,10 +21,12 @@ dependencies {
   implementation("com.amazonaws:aws-lambda-java-events:3.11.2")
   implementation("com.amazonaws:aws-lambda-java-core:1.2.2")
   implementation("org.slf4j:slf4j-nop:2.0.7")
+  implementation(kotlin("reflect"))
   testImplementation(kotlin("test"))
   testImplementation("org.junit.jupiter:junit-jupiter-api:5.9.3")
   testImplementation("io.mockk:mockk:1.13.5")
-  testImplementation("org.assertj:assertj-core:3.24.2")
+//  testImplementation("org.assertj:assertj-core:3.24.2")
+  testImplementation("com.willowtreeapps.assertk:assertk:0.26.1")
   ksp(project(":${rootProject.name}-ksp-processor"))
   ksp("io.insert-koin:koin-ksp-compiler:1.2.2")
 }

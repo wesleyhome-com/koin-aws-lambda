@@ -2,19 +2,20 @@ package com.wesleyhome.koin.aws.lambda.processor
 
 import com.google.devtools.ksp.processing.*
 import com.google.devtools.ksp.symbol.KSAnnotated
+import org.koin.core.annotation.Single
 
+@Single
 class LambdaHandlerProcessor(
-  codeGenerator: CodeGenerator,
-  private val logger: KSPLogger
+  private val wrapperGenerator: LambdaHandlerWrapperGenerator,
+  private val scanner: MetaDataScanner,
+  private val environmentProvider: EnvironmentProvider
 ) : SymbolProcessor {
 
-  private val generator = LambdaHandlerWrapperGenerator(codeGenerator, logger)
-  private val scanner = LambdaHandlerWrapperMetaDataScanner(logger)
 
   override fun process(resolver: Resolver): List<KSAnnotated> {
-    logger.warn("Processing classes")
+    environmentProvider.logger.warn("Processing classes")
     val scanWrappers = scanner.scanWrappers(resolver)
-    generator.generateWrappers(scanWrappers)
+    wrapperGenerator.generateWrappers(scanWrappers)
     return emptyList()
   }
 }

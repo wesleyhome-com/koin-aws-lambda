@@ -1,4 +1,4 @@
-package com.amazon.koin.test.module.one
+package com.amazon.koin.test.module.three
 
 import com.amazon.koin.test.User
 import com.amazon.koin.test.UserRepository
