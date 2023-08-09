@@ -60,13 +60,6 @@ signing {
   }
   sign(publishing.publications["mavenJava"])
 }
-//
-//release {
-//  buildTasks = listOf("build", "publishToSonatype", "closeAndReleaseSonatypeStagingRepository")
-//  with(git) {
-//    requireBranch = "master"
-//  }
-//}
 
 tasks.javadoc {
   if (JavaVersion.current().isJava9Compatible) {
