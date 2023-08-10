@@ -24,6 +24,10 @@ task("release") {
       ).get()
     releaseVersion(version)
     releaseVersion(nextVersion)
+    exec {
+      commandLine("cmd", "/c", "git", "push", "origin", "--tags")
+    }
+
   }
 }
 fun releaseVersion(version: String) {
@@ -38,24 +42,14 @@ fun releaseVersion(version: String) {
     "Releasing Version"
   }
   exec {
-    commandLine("cmd", "/c", "echo", "git", "add", "version.properties")
+    commandLine("cmd", "/c", "git", "add", "gradle.properties")
   }
   exec {
-    commandLine("cmd", "/c", "echo", "git", "commit", "-m", """"$action $version"""")
+    commandLine("cmd", "/c", "git", "commit", "-m", """"$action $version"""")
   }
   if(!isSnapshot) {
     exec {
-      commandLine("cmd", "/c", "echo", "git", "tag", """"koin-aws-lambda-$version"""")
+      commandLine("cmd", "/c", "git", "tag", """"koin-aws-lambda-$version"""")
     }
-  }
-  exec {
-    val commands = listOf("cmd", "/c", "echo", "git", "push", "origin").also {
-      if(!isSnapshot) {
-        it + "--tags"
-      } else {
-        it
-      }
-    }
-    commandLine(commands)
   }
 }
