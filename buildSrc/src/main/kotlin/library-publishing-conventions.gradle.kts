@@ -11,7 +11,7 @@ repositories {
 }
 
 java {
-  sourceCompatibility = JavaVersion.VERSION_11
+  sourceCompatibility = JavaVersion.VERSION_17
   withJavadocJar()
   withSourcesJar()
 }
@@ -66,12 +66,6 @@ tasks.javadoc {
     (options as StandardJavadocDocletOptions).apply {
       addBooleanOption("html5", true)
     }
-  }
-}
-
-java {
-  toolchain {
-    languageVersion.set(JavaLanguageVersion.of(17))
   }
 }
 

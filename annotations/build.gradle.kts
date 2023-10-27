@@ -14,9 +14,8 @@ dependencies {
 
 // Apply a specific Java toolchain to ease working on different environments.
 kotlin {
-  jvmToolchain(11)
+  jvmToolchain(17)
 }
-
 
 tasks.test {
   // Use JUnit Platform for unit tests.
