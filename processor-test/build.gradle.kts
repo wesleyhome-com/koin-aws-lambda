@@ -21,6 +21,11 @@ dependencies {
   implementation("com.amazonaws:aws-lambda-java-events:3.11.2")
   implementation("com.amazonaws:aws-lambda-java-core:1.2.2")
   implementation("org.slf4j:slf4j-nop:2.0.7")
+
+  // Data Faker
+  implementation("io.github.dvgaba:easy-random-core:6.2.1")
+  implementation("net.datafaker:datafaker:2.0.2")
+
   implementation(kotlin("reflect"))
   testImplementation(kotlin("test"))
   testImplementation("org.junit.jupiter:junit-jupiter-api:5.9.3")

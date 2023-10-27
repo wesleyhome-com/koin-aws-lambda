@@ -4,5 +4,5 @@ import org.koin.core.annotation.ComponentScan
 import org.koin.core.annotation.Module
 
 @Module(includes = [RepositoryModule::class])
-@ComponentScan("com.amazon.example.kotlin.services.easy")
+@ComponentScan("com.wesleyhome.koin.aws.lambda.test.services.easy")
 class EasyRandomGeneratorModule

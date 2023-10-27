@@ -69,4 +69,10 @@ tasks.javadoc {
   }
 }
 
+java {
+  toolchain {
+    languageVersion.set(JavaLanguageVersion.of(17))
+  }
+}
+
 fun isOnCIServer() = System.getenv("CI") == "true"
