@@ -26,7 +26,7 @@ buildscript {
 }
 
 rootProject.name = "aws-lambda"
-val subProjects = listOf("annotations", "ksp-processor", "processor-test")
+val subProjects = listOf("annotations", "ksp-processor", "processor-default-module-test", "processor-test")
 include(subProjects)
 project(":annotations")
 subProjects.forEach { subProject ->

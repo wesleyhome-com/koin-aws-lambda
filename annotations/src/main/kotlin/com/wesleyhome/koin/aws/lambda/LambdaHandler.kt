@@ -7,7 +7,7 @@ import kotlin.reflect.KClass
 
 @Target(AnnotationTarget.CLASS)
 annotation class LambdaHandler(
-  val moduleClasses: Array<KClass<*>>,
+  val moduleClasses: Array<KClass<*>> = [],
   val name: String = "",
   val packageName: String = ""
 )
