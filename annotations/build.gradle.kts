@@ -8,7 +8,7 @@ plugins {
 group = "com.wesleyhome.koin"
 //version = providers.gradleProperty("version").get()
 dependencies {
-  api("io.insert-koin:koin-annotations:1.2.2")
+  api("io.insert-koin:koin-annotations:1.3.1")
   testImplementation(kotlin("test"))
 }
 
