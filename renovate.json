@@ -3,7 +3,6 @@
   "extends": [
     "config:recommended"
   ],
-  "schedule": ["every Monday"],
   "packageRules": [
     {
       "description": "Group all non-major updates together",
