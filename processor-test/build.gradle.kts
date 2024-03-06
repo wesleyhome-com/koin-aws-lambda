@@ -23,7 +23,7 @@ dependencies {
   implementation("org.slf4j:slf4j-nop:2.0.12")
 
   // Data Faker
-  implementation("io.github.dvgaba:easy-random-core:6.2.1")
+  implementation("io.github.dvgaba:easy-random-core:7.0.0")
   implementation("net.datafaker:datafaker:2.1.0")
 
   implementation(kotlin("reflect"))
