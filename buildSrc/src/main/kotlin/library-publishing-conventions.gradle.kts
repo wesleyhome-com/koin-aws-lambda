@@ -23,12 +23,12 @@ publishing {
       pom {
         description = "Koin AWS Lambda Wrapper Generator"
         name = "Lambda Wrapper Generator for Koin applications"
-        url = "https://github.com/justin-wesley/koin-aws-lambda"
+        url = "https://github.com/wesleyhome-com/koin-aws-lambda"
         inceptionYear = "2023"
         scm {
-          connection = "scm:git:https://github.com/justin-wesley/koin-aws-lambda.git"
-          developerConnection = "scm:git:https://github.com/justin-wesley/koin-aws-lambda.git"
-          url = "https://github.com/justin-wesley/koin-aws-lambda.git"
+          connection = "scm:git:https://github.com/wesleyhome-com/koin-aws-lambda.git"
+          developerConnection = "scm:git:https://github.com/wesleyhome-com/koin-aws-lambda.git"
+          url = "https://github.com/wesleyhome-com/koin-aws-lambda.git"
           tag = "HEAD"
         }
         developers {
