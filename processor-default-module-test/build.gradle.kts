@@ -20,7 +20,7 @@ dependencies {
   implementation("io.insert-koin:koin-core:3.5.6")
   implementation("com.amazonaws:aws-lambda-java-events:3.11.5")
   implementation("com.amazonaws:aws-lambda-java-core:1.2.3")
-  implementation("org.slf4j:slf4j-nop:2.0.12")
+  implementation("org.slf4j:slf4j-nop:2.0.13")
 
   // Data Faker
   implementation("io.github.dvgaba:easy-random-core:7.0.0")
@@ -31,7 +31,7 @@ dependencies {
   testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.2")
   testImplementation("io.mockk:mockk:1.13.10")
 //  testImplementation("org.assertj:assertj-core:3.24.2")
-  testImplementation("com.willowtreeapps.assertk:assertk:0.28.0")
+  testImplementation("com.willowtreeapps.assertk:assertk:0.28.1")
   ksp(project(":${rootProject.name}-ksp-processor"))
   ksp("io.insert-koin:koin-ksp-compiler:1.3.1")
 }
