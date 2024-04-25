@@ -24,7 +24,7 @@ dependencies {
 
   // Data Faker
   implementation("io.github.dvgaba:easy-random-core:7.0.0")
-  implementation("net.datafaker:datafaker:2.1.0")
+  implementation("net.datafaker:datafaker:2.2.2")
 
   implementation(kotlin("reflect"))
   testImplementation(kotlin("test"))
