@@ -1,7 +1,7 @@
 plugins {
   // Apply the org.jetbrains.kotlin.jvm Plugin to add support for Kotlin.
   kotlin("jvm")
-  id("com.google.devtools.ksp") version "1.9.24-1.0.20"
+  id("com.google.devtools.ksp") version "2.0.0-1.0.23"
   // Apply the java-library plugin for API and implementation separation.
   `library-publishing-conventions`
 }
