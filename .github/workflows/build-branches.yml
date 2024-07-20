@@ -8,6 +8,10 @@ on:
 jobs:
   build-snapshot-gradle-project:
     runs-on: ubuntu-latest
+    env:
+      ORG_GRADLE_PROJECT_sonatypeUsername: ${{ secrets.SONATYPE_USERNAME }}
+      ORG_GRADLE_PROJECT_sonatypePassword: ${{ secrets.SONATYPE_PASSWORD }}
+      ORG_GRADLE_PROJECT_signingKey: ${{ secrets.GPG_SECRETKEY }}
     steps:
       - name: Checkout project sources
         uses: actions/checkout@v4
