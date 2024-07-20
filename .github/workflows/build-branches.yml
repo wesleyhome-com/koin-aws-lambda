@@ -1,4 +1,4 @@
-name: Build Gradle project
+name: Build Gradle Branch project
 
 on:
   push:
