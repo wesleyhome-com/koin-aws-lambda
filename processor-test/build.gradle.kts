@@ -1,6 +1,6 @@
 plugins {
   kotlin("jvm")
-  id("com.google.devtools.ksp") version "2.0.0-1.0.23"
+  id("com.google.devtools.ksp") version "2.0.10-1.0.24"
   application
 }
 
@@ -18,9 +18,9 @@ sourceSets {
 dependencies {
   implementation(project(":${rootProject.name}-annotations"))
   implementation("io.insert-koin:koin-core:3.5.6")
-  implementation("com.amazonaws:aws-lambda-java-events:3.12.0")
+  implementation("com.amazonaws:aws-lambda-java-events:3.13.0")
   implementation("com.amazonaws:aws-lambda-java-core:1.2.3")
-  implementation("org.slf4j:slf4j-nop:2.0.13")
+  implementation("org.slf4j:slf4j-nop:2.0.14")
 
   // Data Faker
   implementation("io.github.dvgaba:easy-random-core:7.0.0")
