@@ -10,7 +10,7 @@ group = "com.wesleyhome.koin"
 
 dependencies {
   api(project(":${rootProject.name}-annotations"))
-  implementation("com.google.devtools.ksp:symbol-processing-api:2.0.0-1.0.24")
+  implementation("com.google.devtools.ksp:symbol-processing-api:2.0.10-1.0.24")
   implementation("com.squareup:kotlinpoet:1.18.1")
   implementation("com.squareup:kotlinpoet-ksp:1.18.1")
   implementation("io.insert-koin:koin-core:3.5.6")
