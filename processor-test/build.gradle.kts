@@ -20,7 +20,7 @@ dependencies {
   implementation("io.insert-koin:koin-core:3.5.6")
   implementation("com.amazonaws:aws-lambda-java-events:3.13.0")
   implementation("com.amazonaws:aws-lambda-java-core:1.2.3")
-  implementation("org.slf4j:slf4j-nop:2.0.14")
+  implementation("org.slf4j:slf4j-nop:2.0.16")
 
   // Data Faker
   implementation("io.github.dvgaba:easy-random-core:7.0.0")
@@ -28,7 +28,7 @@ dependencies {
 
   implementation(kotlin("reflect"))
   testImplementation(kotlin("test"))
-  testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.3")
+  testImplementation("org.junit.jupiter:junit-jupiter-api:5.11.0")
   testImplementation("io.mockk:mockk:1.13.12")
 //  testImplementation("org.assertj:assertj-core:3.24.2")
   testImplementation("com.willowtreeapps.assertk:assertk:0.28.1")
