@@ -13,7 +13,7 @@ dependencies {
   implementation("com.google.devtools.ksp:symbol-processing-api:2.0.10-1.0.24")
   implementation("com.squareup:kotlinpoet:1.18.1")
   implementation("com.squareup:kotlinpoet-ksp:1.18.1")
-  implementation("io.insert-koin:koin-core:3.5.6")
+  implementation("io.insert-koin:koin-core:4.0.0")
   implementation("com.amazonaws:aws-lambda-java-core:1.2.3")
   testImplementation(kotlin("test"))
   implementation("org.junit.jupiter:junit-jupiter:5.11.0")
