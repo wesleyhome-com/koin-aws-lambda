@@ -17,7 +17,7 @@ sourceSets {
 
 dependencies {
   implementation(project(":${rootProject.name}-annotations"))
-  implementation("io.insert-koin:koin-core:3.5.6")
+  implementation("io.insert-koin:koin-core:4.0.0")
   implementation("com.amazonaws:aws-lambda-java-events:3.14.0")
   implementation("com.amazonaws:aws-lambda-java-core:1.2.3")
   implementation("org.slf4j:slf4j-nop:2.0.16")
