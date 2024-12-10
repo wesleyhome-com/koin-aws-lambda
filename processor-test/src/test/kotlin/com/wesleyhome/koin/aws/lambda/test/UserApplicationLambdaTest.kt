@@ -4,6 +4,7 @@ import assertk.assertThat
 import assertk.assertions.isEqualTo
 import assertk.assertions.isNotNull
 import com.amazonaws.services.lambda.runtime.Context
+import com.wesleyhome.koin.aws.lambda.test.application.UserApplicationWrapper
 import io.mockk.impl.annotations.MockK
 import io.mockk.junit5.MockKExtension
 import org.junit.jupiter.api.Test
@@ -12,7 +13,7 @@ import org.junit.jupiter.api.extension.ExtendWith
 @ExtendWith(MockKExtension::class)
 class UserApplicationLambdaTest {
 
-  private val app = UserApplicationHandlerWrapper()
+  private val app = UserApplicationWrapper()
 
   @MockK
   private lateinit var context: Context
