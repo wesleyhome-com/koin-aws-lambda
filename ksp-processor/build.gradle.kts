@@ -12,7 +12,7 @@ dependencies {
   api(project(":${rootProject.name}-annotations"))
   implementation("com.google.devtools.ksp:symbol-processing-api:2.1.0-1.0.29")
   implementation("com.squareup:kotlinpoet:2.0.0")
-  implementation("com.squareup:kotlinpoet-ksp:1.18.1")
+  implementation("com.squareup:kotlinpoet-ksp:2.0.0")
   implementation("io.insert-koin:koin-core:3.5.6")
   implementation("com.amazonaws:aws-lambda-java-core:1.2.3")
   testImplementation(kotlin("test"))
