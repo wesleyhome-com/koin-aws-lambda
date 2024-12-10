@@ -34,7 +34,12 @@ class KSPLambdaHandlerWrapperGenerator(
 
     private fun generateWrapper(lambdaWrapper: LambdaHandlerMetaData.Wrapper) {
         logger.warn("Generate ${lambdaWrapper.annotatedInterface} Wrapper")
-        val fileName = lambdaWrapper.annotatedInterface.toString() + "Wrapper"
+        val passedInName = lambdaWrapper.arguments["name"] as String
+        val fileName = if (passedInName.isNotBlank()) {
+            passedInName
+        } else {
+            lambdaWrapper.annotatedInterface.toString() + "Wrapper"
+        }
         generateWrapper(lambdaWrapper, fileName)
     }
 
@@ -101,7 +106,13 @@ class KSPLambdaHandlerWrapperGenerator(
             .addModifiers(KModifier.PRIVATE)
             .delegate("%M()", injectName)
             .build()
-        val fileSpec = FileSpec.builder(lambdaWrapper.packageName, fileName).let {
+        val passedInPackageName = lambdaWrapper.arguments["packageName"] as String
+        val packageName = if(passedInPackageName.isNotEmpty()) {
+            passedInPackageName
+        } else {
+            lambdaWrapper.packageName
+        }
+        val fileSpec = FileSpec.builder(packageName, fileName).let {
             if (moduleClasses.isNotEmpty()) {
                 it.addImport("org.koin.ksp.generated", "module")
             }
