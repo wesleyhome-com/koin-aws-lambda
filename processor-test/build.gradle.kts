@@ -28,7 +28,7 @@ dependencies {
 
   implementation(kotlin("reflect"))
   testImplementation(kotlin("test"))
-  testImplementation("org.junit.jupiter:junit-jupiter-api:5.11.3")
+  testImplementation("org.junit.jupiter:junit-jupiter-api:5.11.4")
   testImplementation("io.mockk:mockk:1.13.13")
 //  testImplementation("org.assertj:assertj-core:3.24.2")
   testImplementation("com.willowtreeapps.assertk:assertk:0.28.1")
