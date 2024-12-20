@@ -16,9 +16,9 @@ dependencies {
   implementation("io.insert-koin:koin-core:4.0.0")
   implementation("com.amazonaws:aws-lambda-java-core:1.2.3")
   testImplementation(kotlin("test"))
-  implementation("org.junit.jupiter:junit-jupiter:5.11.3")
-  testImplementation("org.assertj:assertj-core:3.26.3")
-  testImplementation("io.mockk:mockk:1.13.13")
+  implementation("org.junit.jupiter:junit-jupiter:5.11.4")
+  testImplementation("org.assertj:assertj-core:3.27.0")
+  testImplementation("io.mockk:mockk:1.13.14")
   ksp("io.insert-koin:koin-ksp-compiler:1.4.0")
 }
 
