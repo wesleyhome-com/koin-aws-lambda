@@ -33,7 +33,7 @@ dependencies {
 //  testImplementation("org.assertj:assertj-core:3.24.2")
   testImplementation("com.willowtreeapps.assertk:assertk:0.28.1")
   ksp(project(":${rootProject.name}-ksp-processor"))
-  ksp("io.insert-koin:koin-ksp-compiler:1.4.0")
+  ksp("io.insert-koin:koin-ksp-compiler:2.0.0")
 }
 
 // Apply a specific Java toolchain to ease working on different environments.

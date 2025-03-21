@@ -19,7 +19,7 @@ dependencies {
   implementation("org.junit.jupiter:junit-jupiter:5.12.1")
   testImplementation("org.assertj:assertj-core:3.27.3")
   testImplementation("io.mockk:mockk:1.13.17")
-  ksp("io.insert-koin:koin-ksp-compiler:1.4.0")
+  ksp("io.insert-koin:koin-ksp-compiler:2.0.0")
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
