@@ -15,13 +15,13 @@ pluginManagement {
 }
 
 plugins {
-  kotlin("jvm") version "2.1.20" apply false
+  kotlin("jvm") version "2.4.10" apply false
 }
 
 
 buildscript {
   dependencies {
-    classpath(kotlin("gradle-plugin", version = "2.1.20"))
+    classpath(kotlin("gradle-plugin", version = "2.4.10"))
   }
 }
 
