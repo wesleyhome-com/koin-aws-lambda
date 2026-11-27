@@ -3,6 +3,7 @@ package com.wesleyhome.koin.aws.lambda.processor
 import com.google.devtools.ksp.processing.Resolver
 import com.google.devtools.ksp.symbol.KSAnnotated
 import com.google.devtools.ksp.symbol.KSClassDeclaration
+import com.google.devtools.ksp.symbol.KSTypeReference
 import com.wesleyhome.koin.aws.lambda.LambdaHandler
 import org.koin.core.annotation.Single
 
@@ -23,7 +24,7 @@ class LambdaHandlerWrapperMetaDataScanner(
   private fun createWrapperClass(annotated: KSAnnotated): LambdaHandlerMetaData.Wrapper {
     val componentClass = annotated as KSClassDeclaration
     val superTypes = componentClass.superTypes.map { it }.toList()
-    superTypes.firstOrNull { it.element.toString() == "RequestHandler" }
+    superTypes.firstOrNull { it.isRequestHandler() }
       ?: error("LambdaHandler must implement RequestHandler")
     val handlerAnnotation =
       componentClass.annotations.first { it.shortName.asString() == LambdaHandler::class.simpleName!! }
@@ -40,6 +41,15 @@ class LambdaHandlerWrapperMetaDataScanner(
 }
 
 fun KSClassDeclaration.getPackageName(): String = packageName.asString()
+
+private const val REQUEST_HANDLER_FQN = "com.amazonaws.services.lambda.runtime.RequestHandler"
+
+/**
+ * Matches by resolved qualified name. KSP2's `element.toString()` includes type arguments
+ * (e.g. `RequestHandler<In, Out>`), so a simple-name string comparison no longer works.
+ */
+fun KSTypeReference.isRequestHandler(): Boolean =
+  resolve().declaration.qualifiedName?.asString() == REQUEST_HANDLER_FQN
 val forbiddenKeywords = listOf("interface")
 fun String.filterForbiddenKeywords(): String {
   return split(".").joinToString(".") {

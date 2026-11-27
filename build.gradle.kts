@@ -1,3 +1,5 @@
+import javax.inject.Inject
+
 plugins {
   id("io.github.gradle-nexus.publish-plugin") version "2.0.0"
 }
@@ -11,7 +13,15 @@ nexusPublishing {
   }
 }
 
-task("release") {
+// Project.exec was removed in Gradle 9; use an injected ExecOperations instead.
+interface InjectedExecOps {
+  @get:Inject
+  val execOps: ExecOperations
+}
+
+val execOps = objects.newInstance<InjectedExecOps>().execOps
+
+tasks.register("release") {
   doLast {
     val version = versionString.removeSuffix("-SNAPSHOT")
     val versionParts = version.split(".")
@@ -24,7 +34,7 @@ task("release") {
       ).get()
     releaseVersion(version)
     releaseVersion(nextVersion)
-    exec {
+    execOps.exec {
       commandLine("cmd", "/c", "git", "push", "origin", "--tags")
     }
 
@@ -41,14 +51,14 @@ fun releaseVersion(version: String) {
   } else {
     "Releasing Version"
   }
-  exec {
+  execOps.exec {
     commandLine("cmd", "/c", "git", "add", "gradle.properties")
   }
-  exec {
+  execOps.exec {
     commandLine("cmd", "/c", "git", "commit", "-m", """"$action $version"""")
   }
   if(!isSnapshot) {
-    exec {
+    execOps.exec {
       commandLine("cmd", "/c", "git", "tag", """"koin-aws-lambda-$version"""")
     }
   }

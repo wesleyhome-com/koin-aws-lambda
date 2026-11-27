@@ -52,7 +52,7 @@ publishing {
 signing {
   setRequired { !project.version.toString().endsWith("-SNAPSHOT") && !project.hasProperty("skipSigning") }
   if(isOnCIServer()) {
-    val signingKey: String? by project
+    val signingKey = project.findProperty("signingKey") as String?
     if((signingKey?.length ?: 0) <= 0){
       throw RuntimeException("No Signing Key")
     }

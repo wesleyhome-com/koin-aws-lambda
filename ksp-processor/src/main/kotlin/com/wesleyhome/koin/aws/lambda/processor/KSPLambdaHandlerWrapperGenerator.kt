@@ -50,7 +50,7 @@ class KSPLambdaHandlerWrapperGenerator(
         val annotatedInterface = lambdaWrapper.annotatedInterface
         val typeParameterResolver = annotatedInterface.typeParameters.toTypeParameterResolver()
         val requestHandler =
-            annotatedInterface.superTypes.filter { it.element.toString() == RequestHandler::class.simpleName }.first()
+            annotatedInterface.superTypes.first { it.isRequestHandler() }
                 .let {
                     it.toTypeName(typeParameterResolver) as ParameterizedTypeName
                 }
